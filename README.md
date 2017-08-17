@@ -1,0 +1,2 @@
+# Wikiled.Dictionary
+Dictionary API
