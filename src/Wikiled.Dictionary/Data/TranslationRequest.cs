@@ -5,9 +5,12 @@ namespace Wikiled.Dictionary.Data
 {
     public class TranslationRequest
     {
-        public Word Source { get; set; }
+        public string Word { get; set; }
 
         [JsonConverter(typeof(StringEnumConverter))]
-        public Language TargetLanguage { get; }
+        public Language From { get; set; }
+
+        [JsonConverter(typeof(StringEnumConverter))]
+        public Language To { get; set; }
     }
 }
