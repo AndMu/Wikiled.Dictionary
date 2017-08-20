@@ -2,6 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard1.1</TargetFramework>
+    <Authors>Wikiled</Authors>
+    <Description>Dictionary API</Description>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageTags>Multilanguage dictionary API</PackageTags>
+    <ProjectUrl>https://github.com/AndMu/Wikiled.Dictionary</ProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>
