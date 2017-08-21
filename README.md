@@ -49,7 +49,7 @@ Supports translation from/to English and any of below languages:
 Samle code:
 ```C#
 	DictionaryManagerFactory factory = new DictionaryManagerFactory();	
-	var manager = factory.Create();
+	var manager = factory.Construct();
 	var request = new TranslationRequest
 	{
 		From = Language.English,
