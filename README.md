@@ -48,12 +48,13 @@ Supports translation from/to English and any of below languages:
 
 Samle code:
 ```C#
-var request = new TranslationRequest
-                             {
-                                 From = Language.English,
-                                 To = Language.German,
-                                 Word = "Love"
-                             };
-var result = await instance.Translate(request, CancellationToken.None)
-			
+	DictionaryManagerFactory factory = new DictionaryManagerFactory();	
+	var manager = factory.Create();
+	var request = new TranslationRequest
+	{
+		From = Language.English,
+		To = Language.German,
+		Word = "Love"
+	};
+	var result = await manager.Translate(request, CancellationToken.None);		
 ```
