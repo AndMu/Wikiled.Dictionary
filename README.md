@@ -2,11 +2,11 @@
 
 ![Nuget](https://img.shields.io/nuget/v/Wikiled.Dictionary.svg)
 
-Supports .NET Standard 1.1
+.NET Standard 1.1
 
 37 Languages Online Free Dictionary API.
 
-Support translation from/to English and any of below languages:
+Supports translation from/to English and any of below languages:
 
 * Arabic
 * Croatian
@@ -46,7 +46,7 @@ Support translation from/to English and any of below languages:
 * Yiddish
 
 
-To find post codes which start with N10:
+Samle code:
 ```C#
 var request = new TranslationRequest
                              {
