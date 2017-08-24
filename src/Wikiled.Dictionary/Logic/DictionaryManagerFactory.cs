@@ -8,11 +8,8 @@ namespace Wikiled.Dictionary.Logic
     {
         public IDictionaryManager Construct()
         {
-            var client = new HttpClient
-                             {
-                                 BaseAddress = new Uri("http://api.wikiled.com")
-                             };
-            var manager = new DictionaryManager(new ApiClientFactory(client));
+            var client = new HttpClient();
+            var manager = new DictionaryManager(new ApiClientFactory(client, new Uri("http://api.wikiled.com")));
             return manager;
         }
     }

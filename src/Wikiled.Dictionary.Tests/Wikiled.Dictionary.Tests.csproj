@@ -124,8 +124,8 @@
     <Reference Include="System.Xml.ReaderWriter, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Xml.ReaderWriter.4.3.0\lib\net46\System.Xml.ReaderWriter.dll</HintPath>
     </Reference>
-    <Reference Include="Wikiled.Core.Standard, Version=1.0.15.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Wikiled.Core.Standard.1.0.15\lib\netstandard1.1\Wikiled.Core.Standard.dll</HintPath>
+    <Reference Include="Wikiled.Core.Standard, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Wikiled.Core.Standard.1.1.1\lib\netstandard1.1\Wikiled.Core.Standard.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
