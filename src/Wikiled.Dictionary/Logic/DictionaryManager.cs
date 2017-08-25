@@ -23,7 +23,7 @@ namespace Wikiled.Dictionary.Logic
             Guard.IsValid(() => request, request, translationRequest => request.From == Language.English || request.To == Language.English, "Only from/to English is supported");
             Guard.IsValid(() => request, request, translationRequest => request.From != request.To , "From and To can't match");
             var client = factory.GetClient();
-            var result = await client.PostRequest<TranslationRequest, TranslationResult>("Api/Dictionary/Translate", request, token).ConfigureAwait(false);
+            var result = await client.GetRequest<TranslationResult>($"Dictionary/{request.From}/{request.To}/{request.Word}", token).ConfigureAwait(false);
             return result;
         }
     }
