@@ -4,6 +4,8 @@
 
 .NET Standard 1.1
 
+Also accessbile as REST service. Sample query: [http://api.wikiled.com/Dictionary/english/lithuanian/love]
+
 37 Languages Online Free Dictionary API.
 
 Supports translation from/to English and any of below languages:
