@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Wikiled.Core.Standard.Api;
+using Wikiled.Core.Standard.Api.Client;
 using Wikiled.Core.Utility.Arguments;
 using Wikiled.Dictionary.Data;
 

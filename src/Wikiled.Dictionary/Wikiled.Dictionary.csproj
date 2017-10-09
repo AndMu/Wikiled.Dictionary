@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.1</TargetFramework>
+    <TargetFrameworks>netstandard1.6;netstandard2.0;net46</TargetFrameworks>
     <Authors>Wikiled</Authors>
     <Description>Dictionary API</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Wikiled.Core.Standard" Version="1.1.1" />
+    <PackageReference Include="Wikiled.Core.Standard" Version="1.2.3" />
   </ItemGroup>
 
 </Project>

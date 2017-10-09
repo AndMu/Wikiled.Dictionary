@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Net.Http;
-using Wikiled.Core.Standard.Api;
+using Wikiled.Core.Standard.Api.Client;
 
 namespace Wikiled.Dictionary.Logic
 {

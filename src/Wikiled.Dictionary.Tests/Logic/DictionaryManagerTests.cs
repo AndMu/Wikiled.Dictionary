@@ -2,7 +2,7 @@ using System;
 using System.Threading;
 using Moq;
 using NUnit.Framework;
-using Wikiled.Core.Standard.Api;
+using Wikiled.Core.Standard.Api.Client;
 using Wikiled.Dictionary.Data;
 using Wikiled.Dictionary.Logic;
 
