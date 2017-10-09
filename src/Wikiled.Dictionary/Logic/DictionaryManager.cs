@@ -22,8 +22,8 @@ namespace Wikiled.Dictionary.Logic
             Guard.IsValid(() => request, request, translationRequest => !string.IsNullOrWhiteSpace(translationRequest.Word), "Word is not specified");
             Guard.IsValid(() => request, request, translationRequest => request.From == Language.English || request.To == Language.English, "Only from/to English is supported");
             Guard.IsValid(() => request, request, translationRequest => request.From != request.To , "From and To can't match");
-            var client = factory.GetPostClient("Api/Dictionary/Translate");
-            var result = await client.Request<TranslationRequest, TranslationResult>(request, token).ConfigureAwait(false);
+            var client = factory.GetClient();
+            var result = await client.GetRequest<TranslationResult>($"Dictionary/{request.From}/{request.To}/{request.Word}", token).ConfigureAwait(false);
             return result;
         }
     }
