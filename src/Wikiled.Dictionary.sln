@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.3
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wikiled.Dictionary", "Wikiled.Dictionary\Wikiled.Dictionary.csproj", "{D6A1A78D-4345-4ADA-9CAA-EAA138DC0994}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wikiled.Dictionary.Tests", "Wikiled.Dictionary.Tests\Wikiled.Dictionary.Tests.csproj", "{382CCA29-6AD9-4B3A-8E00-F7A93C14B367}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wikiled.Dictionary.AcceptanceTests", "Wikiled.Dictionary.AcceptanceTests\Wikiled.Dictionary.AcceptanceTests.csproj", "{0B14781F-807E-4437-9581-56D7FBB453ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{382CCA29-6AD9-4B3A-8E00-F7A93C14B367}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{382CCA29-6AD9-4B3A-8E00-F7A93C14B367}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{382CCA29-6AD9-4B3A-8E00-F7A93C14B367}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B14781F-807E-4437-9581-56D7FBB453ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B14781F-807E-4437-9581-56D7FBB453ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B14781F-807E-4437-9581-56D7FBB453ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B14781F-807E-4437-9581-56D7FBB453ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

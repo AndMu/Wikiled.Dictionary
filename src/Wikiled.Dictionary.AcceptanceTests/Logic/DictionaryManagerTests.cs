@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using Wikiled.Core.Standard.Api;
+using Wikiled.Core.Standard.Api.Client;
 using Wikiled.Dictionary.Data;
 using Wikiled.Dictionary.Logic;
 
@@ -39,7 +40,7 @@ namespace Wikiled.Dictionary.AcceptanceTests.Logic
 
         private DictionaryManager CreateManager()
         {
-            return new DictionaryManager(new ApiClientFactory(new HttpClient { BaseAddress = new Uri("http://api.wikiled.com") }));
+            return new DictionaryManager(new ApiClientFactory(new HttpClient(), new Uri("http://api.wikiled.com")));
         }
     }
 }
