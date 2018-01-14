@@ -35,7 +35,7 @@ namespace Wikiled.Dictionary.AcceptanceTests.Logic
                              },
                              CancellationToken.None).ConfigureAwait(false);
             Assert.IsTrue(result.IsSuccess);
-            Assert.AreEqual(total, result.Result.Translations.Length);
+            Assert.AreEqual(total, result.Data.Result.Translations.Length);
         }
 
         private DictionaryManager CreateManager()

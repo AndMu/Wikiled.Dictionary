@@ -7,6 +7,6 @@ namespace Wikiled.Dictionary.Logic
 {
     public interface IDictionaryManager
     {
-        Task<ServiceResponse<TranslationResult>> Translate(TranslationRequest request, CancellationToken token);
+        Task<ServiceResponse<ServiceResult<TranslationResult>>> Translate(TranslationRequest request, CancellationToken token);
     }
 }
