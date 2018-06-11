@@ -1,9 +1,19 @@
-﻿namespace Wikiled.Dictionary.Data
+﻿using Wikiled.Common.Arguments;
+
+namespace Wikiled.Dictionary.Data
 {
     public class TranslationResult
     {
-        public TranslationRequest Request { get; set; }
+        public TranslationResult(TranslationRequest request, string[] translations)
+        {
+            Guard.NotNull(() => request, request);
+            Guard.NotNull(() => translations, translations);
+            Request = request;
+            Translations = translations;
+        }
 
-        public string[] Translations { get; set; }
+        public TranslationRequest Request { get; }
+
+        public string[] Translations { get; }
     }
 }

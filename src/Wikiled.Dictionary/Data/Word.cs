@@ -1,13 +1,21 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Wikiled.Common.Arguments;
 
 namespace Wikiled.Dictionary.Data
 {
     public class Word
     {
-        [JsonConverter(typeof(StringEnumConverter))]
-        public Language Language { get; set; }
+        public Word(string text, Language language)
+        {
+            Guard.NotNullOrEmpty(() => text, text);
+            Text = text;
+            Language = language;
+        }
 
-        public string Text { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
+        public Language Language { get; }
+
+        public string Text { get; }
     }
 }
