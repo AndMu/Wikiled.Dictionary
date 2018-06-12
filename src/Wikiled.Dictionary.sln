@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wikiled.Dictionary", "Wikil
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wikiled.Dictionary.Tests", "Wikiled.Dictionary.Tests\Wikiled.Dictionary.Tests.csproj", "{382CCA29-6AD9-4B3A-8E00-F7A93C14B367}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wikiled.Dictionary.AcceptanceTests", "Wikiled.Dictionary.AcceptanceTests\Wikiled.Dictionary.AcceptanceTests.csproj", "{586BC52B-4038-4FFA-8715-16A26FCDA812}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{382CCA29-6AD9-4B3A-8E00-F7A93C14B367}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{382CCA29-6AD9-4B3A-8E00-F7A93C14B367}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{382CCA29-6AD9-4B3A-8E00-F7A93C14B367}.Release|Any CPU.Build.0 = Release|Any CPU
+		{586BC52B-4038-4FFA-8715-16A26FCDA812}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{586BC52B-4038-4FFA-8715-16A26FCDA812}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{586BC52B-4038-4FFA-8715-16A26FCDA812}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{586BC52B-4038-4FFA-8715-16A26FCDA812}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
