@@ -29,7 +29,6 @@ namespace Wikiled.Dictionary.Tests.Logic
         public void Construct()
         {
             Assert.Throws<ArgumentNullException>(() => new RedisLanguageDictionary(null));
-            
         }
 
         private RedisLanguageDictionary CreateRedisLanguageDictionary()

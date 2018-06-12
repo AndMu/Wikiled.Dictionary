@@ -6,6 +6,7 @@ using System.Reactive.Threading.Tasks;
 using System.Threading.Tasks;
 using Wikiled.Common.Arguments;
 using Wikiled.Dictionary.Data;
+using Wikiled.MachineLearning.Mathematics.Vectors;
 using Wikiled.Redis.Keys;
 using Wikiled.Redis.Logic;
 using Wikiled.Redis.Logic.Pool;
@@ -49,7 +50,7 @@ namespace Wikiled.Dictionary.Logic
             }
 
             await Task.WhenAll(candidates);
-            var leftSide = candidates.SelectMany(item => item.Result.Translations).Distinct();
+            var leftSide = candidates.SelectMany(item => item.Result.Translations).Distinct().ToArray();
 
             candidates = new List<Task<TranslationResult>>();
             foreach (var intermediateTranslation in intermediate.Translations)
@@ -62,8 +63,56 @@ namespace Wikiled.Dictionary.Logic
             }
 
             await Task.WhenAll(candidates);
-            var rightSide = candidates.SelectMany(item => item.Result.Translations).Distinct();
-            Dictionary<string, DicVectorCell> englishCells = new Dictionary<string, DicVectorCell>(StringComparer.OrdinalIgnoreCase);
+            var candidatesTranslations = candidates.Select(item => item.Result);
+            var rightSide = candidates.SelectMany(item => item.Result.Translations).Distinct().ToArray();
+
+            candidates = new List<Task<TranslationResult>>();
+            foreach (var result in leftSide)
+            {
+                var subRequest = new TranslationRequest();
+                subRequest.From = originalFrom;
+                subRequest.To = Language.English;
+                subRequest.Word = result;
+                candidates.Add(TranslateRaw(subRequest));
+            }
+
+            foreach (var result in rightSide)
+            {
+                var subRequest = new TranslationRequest();
+                subRequest.From = originalTo;
+                subRequest.To = Language.English;
+                subRequest.Word = result;
+                candidates.Add(TranslateRaw(subRequest));
+            }
+
+            await Task.WhenAll(candidates);
+            DictionaryVectorHelper dictionaryVector = new DictionaryVectorHelper();
+            var english = candidates.SelectMany(item => item.Result.Translations).Distinct();
+            foreach (var word in english)
+            {
+                dictionaryVector.AddToDictionary(word);
+            }
+
+            List<(VectorData, string)> vectors = new List<(VectorData, string)>();
+            var main = dictionaryVector.GetFullVector(intermediate.Translations);
+            foreach (var translation in candidatesTranslations)
+            {
+                foreach (var translationTranslation in translation.Translations)
+                {
+                    var trans = candidates.Where(item => item.Result.Request.Word == translationTranslation).SelectMany(item => item.Result.Translations).ToArray();
+                    var vector = dictionaryVector.GetFullVector(trans);
+                    vectors.Add((vector, translationTranslation));
+                }
+            }
+
+            var distance = new CosineSimilarityDistance();
+            var super = vectors.Select(item => new {item.Item2, Distance = distance.Measure(main, item.Item1)}).OrderByDescending(item => item.Distance).ToArray();
+            //foreach (var candidate in candidates.Where(item => item.f))
+            //{
+
+            //}
+
+
             return null;
         }
 

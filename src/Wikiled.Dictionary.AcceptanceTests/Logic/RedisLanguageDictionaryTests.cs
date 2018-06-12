@@ -1,6 +1,4 @@
-using System;
 using System.Threading.Tasks;
-using Moq;
 using NUnit.Framework;
 using Wikiled.Dictionary.Data;
 using Wikiled.Dictionary.Logic;
