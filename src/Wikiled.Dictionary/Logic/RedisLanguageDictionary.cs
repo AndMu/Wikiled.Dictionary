@@ -93,25 +93,40 @@ namespace Wikiled.Dictionary.Logic
                 dictionaryVector.AddToDictionary(word);
             }
 
-            List<(VectorData, string)> vectors = new List<(VectorData, string)>();
+            Dictionary<string, VectorData> vectors = new Dictionary<string, VectorData>();
             var main = dictionaryVector.GetFullVector(intermediate.Translations);
-            foreach (var translation in candidatesTranslations)
+            foreach (var translationTranslation in candidates)
             {
-                foreach (var translationTranslation in translation.Translations)
-                {
-                    var trans = candidates.Where(item => item.Result.Request.Word == translationTranslation).SelectMany(item => item.Result.Translations).ToArray();
-                    var vector = dictionaryVector.GetFullVector(trans);
-                    vectors.Add((vector, translationTranslation));
-                }
+                var vector = dictionaryVector.GetFullVector(translationTranslation.Result.Translations);
+                vectors.Add(translationTranslation.Result.Request.Word, vector);
             }
 
             var distance = new CosineSimilarityDistance();
-            var super = vectors.Select(item => new {item.Item2, Distance = distance.Measure(main, item.Item1)}).OrderByDescending(item => item.Distance).ToArray();
+            Dictionary<string, double> grabber = new Dictionary<string, double>();
+            foreach (var right in candidates.Where(item => item.Result.Request.From == originalTo))
+            {
+                List<(string, string, double)> vectorsSim = new List<(string, string, double)>();
+                foreach (var left in candidates.Where(item => item.Result.Request.From == originalFrom))
+                {
+                    var distanceLe = distance.Measure(vectors[left.Result.Request.Word], vectors[right.Result.Request.Word]);
+                    vectorsSim.Add((left.Result.Request.Word, right.Result.Request.Word, distanceLe));
+                }
+
+                var firstSel = vectorsSim.OrderByDescending(item => item.Item3).Take(3);
+                foreach (var first in firstSel)
+                {
+                    if (first.Item1 == request.Word)
+                    {
+                        grabber[first.Item2] = first.Item3;
+                    }
+                }
+            }
+
+            //var super = vectors.Select(item => new { item.Item2, Distance = distance.Measure(main, item.Item1) }).OrderByDescending(item => item.Distance).ToArray();
             //foreach (var candidate in candidates.Where(item => item.f))
             //{
 
             //}
-
 
             return null;
         }
